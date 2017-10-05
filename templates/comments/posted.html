@@ -1,0 +1,17 @@
+{% extends "django_comments_xtd/base.html" %}
+{% load i18n comments %}
+
+{% block content %}
+<h4 class="text-center">{% trans "Comment confirmation requested." %}</h4>
+
+  <p>Waiting for confirmation</p>
+  {{ comment.content_object }}
+  <div class="comment-item-wrapper">
+    {% include 'django_comments_xtd/comment.html' %}
+    {% blocktrans %}A confirmation message has been sent to your
+    email address. Please, click on the link in the message to confirm
+    your comment.{% endblocktrans %}
+  </div>
+  {% render_comment_form for comment.content_object %}
+
+{% endblock %}
