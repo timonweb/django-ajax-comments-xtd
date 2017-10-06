@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include django_ajax_comments_xtd/templates *
+recursive-include django_ajax_comments_xtd/static *
