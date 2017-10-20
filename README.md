@@ -7,7 +7,7 @@ An addon app to https://github.com/danirus/django-comments-xtd that makes commen
 
 ```pip install django-ajax-comments-xtd```
 
-2. Add the app and its dependencies to INSTALLED_APPS:
+2. Add the app and its dependencies to INSTALLED_APPS in settings.py:
 ```
 INSTALLED_APPS = [
   ...
@@ -18,9 +18,15 @@ INSTALLED_APPS = [
 ]
 ```
 
+3. Add COMMENTS_APP to your settings.py:
+
+```
+COMMENTS_APP = 'django_comments_xtd'
+```
+
 Make sure you follow the exact order of putting these apps together
 
-3. Add this to your url config:
+4. Add this to your url config:
 
 ```
 urlpatterns = [
@@ -31,12 +37,18 @@ urlpatterns = [
 ```
 Note: You don't need to add urls config provided by django_comments and django_comments_xtd because our app includes them all.
 
-4. Add JS library link to your template:
+5. Run migrations to create necessary database tables:
+
+```
+python manage.py migrate
+```
+
+6. Add JS library link to your template:
 ```
 <script src="{% static 'django_ajax_comments_xtd/js/ajax_comments.js' %}"></script>
 ```
 
-5. In your template use these tags to display a list of comments and the comment form:
+7. In templates use these tags to display a list of comments and the comment form:
 
 ```
 {% load comments comments_xtd %}
