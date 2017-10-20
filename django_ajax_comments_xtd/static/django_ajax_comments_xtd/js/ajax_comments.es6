@@ -2,7 +2,7 @@ class DjangoAjaxCommentsXtd {
 
   constructor(options) {
     const defaultOptions = {
-      commentFormSelector: '.comment-submit-form',
+      commentFormClass: 'comment-submit-form',
       commentItemWrapperSelector: '.comment-item-wrapper',
       commentsWrapperSelector: '#comments',
       replyLinkClass: 'reply-link',
@@ -24,7 +24,7 @@ class DjangoAjaxCommentsXtd {
     }
     if (this.opts.submitFormWithAjax) {
       document.addEventListener('submit', e => {
-        if (e.target.classList.value.split(' ').indexOf(this.opts.commentFormSelector) > -1) {
+        if (e.target.classList.contains(this.opts.commentFormClass)) {
           e.preventDefault();
           this.submit(e.target);
         }
@@ -33,7 +33,7 @@ class DjangoAjaxCommentsXtd {
   }
 
   reply(el) {
-    let replyForm = el.parentNode.parentNode.querySelector(this.opts.commentFormSelector);
+    let replyForm = el.parentNode.parentNode.querySelector('.' + this.opts.commentFormClass);
     if (!replyForm) {
       this.ajaxGet(
         el.href || el.getAttribute('data-href'),

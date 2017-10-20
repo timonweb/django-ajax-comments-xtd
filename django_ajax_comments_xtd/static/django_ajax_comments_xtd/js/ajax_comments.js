@@ -9,7 +9,7 @@ var DjangoAjaxCommentsXtd = function () {
     _classCallCheck(this, DjangoAjaxCommentsXtd);
 
     var defaultOptions = {
-      commentFormSelector: '.comment-submit-form',
+      commentFormClass: 'comment-submit-form',
       commentItemWrapperSelector: '.comment-item-wrapper',
       commentsWrapperSelector: '#comments',
       replyLinkClass: 'reply-link',
@@ -35,7 +35,7 @@ var DjangoAjaxCommentsXtd = function () {
       }
       if (this.opts.submitFormWithAjax) {
         document.addEventListener('submit', function (e) {
-          if (e.target.classList.value.split(' ').indexOf(_this.opts.commentFormSelector) > -1) {
+          if (e.target.classList.contains(_this.opts.commentFormClass)) {
             e.preventDefault();
             _this.submit(e.target);
           }
@@ -47,7 +47,7 @@ var DjangoAjaxCommentsXtd = function () {
     value: function reply(el) {
       var _this2 = this;
 
-      var replyForm = el.parentNode.parentNode.querySelector(this.opts.commentFormSelector);
+      var replyForm = el.parentNode.parentNode.querySelector('.' + this.opts.commentFormClass);
       if (!replyForm) {
         this.ajaxGet(el.href || el.getAttribute('data-href'), function (resp) {
           var parser = new DOMParser(),
