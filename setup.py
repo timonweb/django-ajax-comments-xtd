@@ -3,8 +3,9 @@ from setuptools import find_packages
 
 setup(
     name='django-ajax-comments-xtd',
-    version='0.0.1',
-    packages=find_packages(),
+    version='0.0.3',
+    packages=['django_ajax_comments_xtd'],
+    include_package_data=True,
     license='MIT',
     description='"Django Comments Framework XTD extension app with Ajax commenting support',
     long_description=open('README.md').read(),

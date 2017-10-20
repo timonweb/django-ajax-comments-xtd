@@ -1,5 +1,4 @@
 include LICENSE
 include README.md
-recursive-include *.html *.css *.js *.py *.es6
-recursive-include django_ajax_comments_xtd/templates *
-recursive-include django_ajax_comments_xtd/static *
+recursive-include django_ajax_comments_xtd *
+global-exclude *.pyc
