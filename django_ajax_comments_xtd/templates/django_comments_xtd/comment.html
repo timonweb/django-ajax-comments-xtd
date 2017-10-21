@@ -33,9 +33,9 @@
             <br/>
           <small>
           {% if allow_feedback %}
-            {% include "includes/django_comments_xtd/user_feedback.html" %} ·
+            {% include "includes/django_comments_xtd/user_feedback.html" %}
           {% endif %}
-            {% if comment.allow_thread %}<a data-href="{{ comment.get_reply_url }}" class="small reply-link">{% trans "Reply" %}</a>{% endif %} · {{ comment.submit_date|timesince }}</small>
+            {% if comment.allow_thread %}<a data-href="{{ comment.get_reply_url }}" class="small reply-link">{% trans "Reply" %}</a>{% endif %} {{ comment.submit_date|timesince }}</small>
         {% endif %}
       {% if not comment.is_removed and item.children %}
         {% render_xtdcomment_tree with comments=item.children %}

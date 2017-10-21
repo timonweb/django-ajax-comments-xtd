@@ -11,17 +11,18 @@
   <div style="display:none">{{ form.honeypot }}</div>
 
   {{ form.comment|bulma }}
-   {% if not request.user.is_authenticated2 %}
-     {{ form.name|bulma }}
-     {{ form.email|bulma }}
+   {% if not request.user.is_authenticated %}
+     <div class="columns">
+      <div class="column">{{ form.name|bulma }}</div>
+      <div class="column">{{ form.email|bulma }}</div>
+     </div>
    {% endif %}
 
-  {{ form.followup|bulma }}
-
-  <div class="field is-grouped">
-    <div class="control">
-      <button class="button is-primary">{% trans 'Send' %}</button>
+  <div class="columns">
+    <div class="column">
+      <button class="button is-primary is-fullwidth">{% trans 'Send comment' %}</button>
     </div>
+    <div class="column">{{ form.followup|bulma }}</div>
   </div>
 
 </form>
