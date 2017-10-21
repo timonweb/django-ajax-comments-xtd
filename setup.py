@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 setup(
     name='django-ajax-comments-xtd',
-    version='0.1.0',
+    version='0.1.1',
     packages=['django_ajax_comments_xtd'],
     include_package_data=True,
     license='MIT',
