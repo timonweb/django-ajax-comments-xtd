@@ -1,3 +1,5 @@
+# NOTE: This code is alpha. The work is in progress
+
 # django-ajax-comments-xtd
 An addon app to https://github.com/danirus/django-comments-xtd that makes comments submittable via ajax
 
