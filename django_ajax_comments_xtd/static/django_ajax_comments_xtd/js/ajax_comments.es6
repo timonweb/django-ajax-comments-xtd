@@ -69,7 +69,7 @@ class DjangoAjaxCommentsXtd {
         }
         else {
           submittedForm.outerHTML = responseForm.outerHTML;
-          document.querySelector(this.opts.commentsWrapperSelector).innerHTML += responseComment.innerHTML;
+          document.querySelector(this.opts.commentsWrapperSelector).innerHTML = responseComment.innerHTML + document.querySelector(this.opts.commentsWrapperSelector).innerHTML;
         }
       }
       else {
@@ -123,5 +123,8 @@ class DjangoAjaxCommentsXtd {
 
 }
 
-const django_ajax_comments_xtd = new DjangoAjaxCommentsXtd();
-django_ajax_comments_xtd.watch();
+var djangoAjaxCommentsXtd;
+if (!djangoAjaxCommentsXtd) {
+  djangoAjaxCommentsXtd = new DjangoAjaxCommentsXtd();
+  djangoAjaxCommentsXtd.watch();
+}

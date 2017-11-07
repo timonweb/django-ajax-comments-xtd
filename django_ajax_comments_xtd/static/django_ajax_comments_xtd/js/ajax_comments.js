@@ -80,7 +80,7 @@ var DjangoAjaxCommentsXtd = function () {
             }
           } else {
             submittedForm.outerHTML = responseForm.outerHTML;
-            document.querySelector(_this3.opts.commentsWrapperSelector).innerHTML += responseComment.innerHTML;
+            document.querySelector(_this3.opts.commentsWrapperSelector).innerHTML = responseComment.innerHTML + document.querySelector(_this3.opts.commentsWrapperSelector).innerHTML;
           }
         } else {
           submittedForm.innerHTML = resp.target.responseText;
@@ -141,6 +141,9 @@ var DjangoAjaxCommentsXtd = function () {
   return DjangoAjaxCommentsXtd;
 }();
 
-var django_ajax_comments_xtd = new DjangoAjaxCommentsXtd();
-django_ajax_comments_xtd.watch();
+var djangoAjaxCommentsXtd;
+if (!djangoAjaxCommentsXtd) {
+  djangoAjaxCommentsXtd = new DjangoAjaxCommentsXtd();
+  djangoAjaxCommentsXtd.watch();
+}
 //# sourceMappingURL=ajax_comments.js.map
