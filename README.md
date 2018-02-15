@@ -33,7 +33,7 @@ Make sure you follow the exact order of putting these apps together
 ```
 urlpatterns = [
   ...
-  url(r'^comments/', include('tow.django_ajax_comments_xtd.urls')),
+  url(r'^comments/', include('django_ajax_comments_xtd.urls')),
   ...
 ]
 ```
